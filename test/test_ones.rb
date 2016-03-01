@@ -9,6 +9,8 @@ class TestOnes < Test::Unit::TestCase
   def test_that_a_throw_with_1s_yields_the_sum_of_only_the_1s
     assert_equal 1, Yatzy.ones(1, 2, 3, 4, 5)
     assert_equal 2, Yatzy.ones(1, 1, 3, 4, 5)
+    assert_equal 3, Yatzy.ones(1, 1, 1, 4, 3)
+    assert_equal 4, Yatzy.ones(1, 1, 1, 1, 6)
     assert_equal 5, Yatzy.ones(1, 1, 1, 1, 1)
   end
 end
