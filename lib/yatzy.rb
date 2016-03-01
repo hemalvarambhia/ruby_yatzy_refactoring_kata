@@ -1,19 +1,11 @@
 class Yatzy
-  def self.chance(d1, d2, d3, d4, d5)
-    [d1, d2, d3, d4, d5].reduce :+
+  def self.chance(*dice)
+    dice.reduce :+
   end
 
   def self.yatzy(dice)
-    counts = [0]*(dice.length+1)
-    for die in dice do
-      counts[die-1] += 1
-    end
-    for i in 0..counts.size do
-      if counts[i] == 5
-        return 50
-      end
-    end
-    return 0
+    return 0 if dice.uniq.count > 1
+    50
   end
 
   def self.ones( d1,  d2,  d3,  d4,  d5)
