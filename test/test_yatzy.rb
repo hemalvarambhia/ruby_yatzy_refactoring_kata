@@ -3,25 +3,16 @@ require_relative '../lib/yatzy'
 
 class YatzyTest < Test::Unit::TestCase
   def test_chance_scores_sum_of_all_dice
-    expected = 15
-    actual = Yatzy.chance(2,3,4,5,1)
-    assert expected == actual
-    assert 16 == Yatzy.chance(3,3,4,5,1)
+    assert_equal 15, Yatzy.chance(2,3,4,5,1)  
+    assert_equal 16, Yatzy.chance(3,3,4,5,1)
   end
 
   def test_yatzy_scores_50
-    expected = 50
-    actual = Yatzy.yatzy([4,4,4,4,4])
-    assert expected == actual
-    assert 50 == Yatzy.yatzy([6,6,6,6,6])
-    assert 0 == Yatzy.yatzy([6,6,6,6,3])
+    assert_equal 50, Yatzy.yatzy([6,6,6,6,6])
   end
 
-  def test_1s
-    assert Yatzy.ones(1,2,3,4,5) == 1
-    assert 2 == Yatzy.ones(1,2,1,4,5)
-    assert 0 == Yatzy.ones(6,2,2,4,5)
-    assert 4 == Yatzy.ones(1,2,1,1,1)
+  def test_no_yatzy_scores_0
+    assert_equal 0, Yatzy.yatzy([6,6,6,6,3])
   end
 
   def test_2s
