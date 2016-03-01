@@ -1,6 +1,6 @@
 class Yatzy
   def self.chance(*dice)
-    dice.inject(0) {|score, face| score += face }
+    dice.inject(0) {|score, face| score + face }
   end
 
   def self.yatzy(dice)
