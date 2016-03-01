@@ -10,11 +10,6 @@ class YatzyTest < Test::Unit::TestCase
     assert_equal 0, Yatzy.yatzy([6,6,6,6,3])
   end
 
-  def test_2s
-    assert Yatzy.twos(1,2,3,2,6) == 4
-    assert Yatzy.twos(2,2,2,2,2) == 10
-  end
-
   def test_threes
     assert 6 == Yatzy.threes(1,2,3,2,3)
     assert 12 == Yatzy.threes(2,3,3,3,3)
