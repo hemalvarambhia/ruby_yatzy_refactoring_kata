@@ -9,12 +9,6 @@ class YatzyTest < MiniTest::Test
     assert_equal 0, Yatzy.yatzy([6,6,6,6,3])
   end
 
-  def test_smallStraight()
-    assert 15 == Yatzy.smallStraight(1,2,3,4,5)
-    assert 15 == Yatzy.smallStraight(2,3,4,5,1)
-    assert 0 == Yatzy.smallStraight(1,2,2,4,5)
-  end
-
   def test_largeStraight
     assert 20 == Yatzy.largeStraight(6,2,3,4,5)
     assert 20 == Yatzy.largeStraight(2,3,4,5,6)
