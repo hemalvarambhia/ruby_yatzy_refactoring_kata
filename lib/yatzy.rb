@@ -154,7 +154,7 @@ class Yatzy
     tallies[d3-1] += 1
     tallies[d4-1] += 1
     tallies[d5-1] += 1
-    for i in (0..6)
+    for i in (0..5)
       if (tallies[i] >= 4)
         return (i+1) * 4
       end

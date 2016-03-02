@@ -9,12 +9,6 @@ class YatzyTest < Test::Unit::TestCase
     assert_equal 0, Yatzy.yatzy([6,6,6,6,3])
   end
 
-  def test_four_of_a_kind
-    assert 12 == Yatzy.four_of_a_kind(3,3,3,3,5)
-    assert 20 == Yatzy.four_of_a_kind(5,5,5,4,5)
-    assert 12 == Yatzy.four_of_a_kind(3,3,3,3,3)
-  end
-
   def test_smallStraight()
     assert 15 == Yatzy.smallStraight(1,2,3,4,5)
     assert 15 == Yatzy.smallStraight(2,3,4,5,1)
