@@ -9,17 +9,6 @@ class YatzyTest < Test::Unit::TestCase
     assert_equal 0, Yatzy.yatzy([6,6,6,6,3])
   end
 
-  def test_one_pair
-    assert 6 == Yatzy.score_pair(3,4,3,5,6)
-    assert 10 == Yatzy.score_pair(5,3,3,3,5)
-    assert 12 == Yatzy.score_pair(5,3,6,6,5)
-  end
-
-  def test_two_Pair
-    assert_equal 16, Yatzy.two_pair(3,3,5,4,5)
-    assert_equal 16, Yatzy.two_pair(3,3,5,5,5)
-  end
-
   def test_three_of_a_kind()
     assert 9 == Yatzy.three_of_a_kind(3,3,3,4,5)
     assert 15 == Yatzy.three_of_a_kind(5,3,5,4,5)
