@@ -10,5 +10,4 @@ class TestOnePair < Test::Unit::TestCase
     assert_equal 10, Yatzy.score_pair(5, 5, 5, 5, 5)
     assert_equal 12, Yatzy.score_pair(5,6,6,6,5)
   end
-
 end
