@@ -14,10 +14,11 @@ class TestFourOfAKind < Test::Unit::TestCase
   end
 
   def test_that_a_throw_with_a_four_of_a_kind_sums_those_four_faces
-    assert_equal 12, Yatzy.four_of_a_kind(3, 3, 3, 3, 1)
+    assert_equal 20, Yatzy.four_of_a_kind(5, 5, 5, 5, 1)
     assert_equal 20, Yatzy.four_of_a_kind(1, 5, 5, 5, 5)
-    assert_equal 16, Yatzy.four_of_a_kind(4, 1, 4, 4, 4)
-    assert_equal 4, Yatzy.four_of_a_kind(1, 1, 4, 1, 1) 
-    assert_equal 8, Yatzy.four_of_a_kind(2, 2, 2, 1, 2)
+    assert_equal 20, Yatzy.four_of_a_kind(5, 1, 5, 5, 5)
+    assert_equal 20, Yatzy.four_of_a_kind(5, 5, 1, 5, 5) 
+    assert_equal 20, Yatzy.four_of_a_kind(5, 5, 5, 1, 5)
+    assert_equal 12, Yatzy.four_of_a_kind(1, 3, 3, 3, 3)
   end
 end
