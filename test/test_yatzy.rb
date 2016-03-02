@@ -1,5 +1,4 @@
 require_relative 'test_helper'
-require_relative '../lib/yatzy'
 
 class YatzyTest < Test::Unit::TestCase
   def test_yatzy_scores_50
@@ -8,12 +7,6 @@ class YatzyTest < Test::Unit::TestCase
 
   def test_no_yatzy_scores_0
     assert_equal 0, Yatzy.yatzy([6,6,6,6,3])
-  end
-
-  def test_sixes_test
-    assert 0 == Yatzy.new(4,4,4,5,5).sixes()
-    assert 6 == Yatzy.new(4,4,6,5,5).sixes()
-    assert 18 == Yatzy.new(6,5,6,6,5).sixes()
   end
 
   def test_one_pair
