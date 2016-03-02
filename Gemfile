@@ -6,6 +6,7 @@ group :development do
 end
 
 group :test do
+  gem 'minitest'
   gem 'test-unit'
   gem 'simplecov'
 end

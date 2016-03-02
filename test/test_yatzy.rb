@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class YatzyTest < Test::Unit::TestCase
+class YatzyTest < MiniTest::Test
   def test_yatzy_scores_50
     assert_equal 50, Yatzy.yatzy([6,6,6,6,6])
   end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TestSixes < Test::Unit::TestCase
+class TestSixes < MiniTest::Test
   def test_that_a_throw_with_no_6s_yields_0_score
     assert_equal 0, Yatzy.new(1, 2, 3, 4, 5).sixes
   end

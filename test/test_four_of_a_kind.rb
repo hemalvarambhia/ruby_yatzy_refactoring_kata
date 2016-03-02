@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class TestFourOfAKind < Test::Unit::TestCase
+class TestFourOfAKind < MiniTest::Test
   def test_that_a_throw_with_no_four_of_a_kind_yields_0_score
     assert_equal 0, Yatzy.four_of_a_kind(1, 2, 3, 4, 5)
   end

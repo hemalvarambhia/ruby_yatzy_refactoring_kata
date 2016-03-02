@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class TestTwos < Test::Unit::TestCase
+class TestTwos < MiniTest::Test
   def test_that_a_throw_with_no_2s_yields_0_score
     assert_equal 0, Yatzy.twos(1, 1, 3, 1, 6)
   end

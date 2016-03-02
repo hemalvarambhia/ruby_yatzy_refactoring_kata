@@ -54,6 +54,7 @@ PLATFORMS
 DEPENDENCIES
   guard
   guard-minitest
+  minitest
   simplecov
   test-unit
 
