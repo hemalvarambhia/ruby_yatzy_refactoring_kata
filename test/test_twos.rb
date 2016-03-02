@@ -1,5 +1,4 @@
 require_relative 'test_helper'
-require 'yatzy'
 
 class TestTwos < Test::Unit::TestCase
   def test_that_a_throw_with_no_2s_yields_0_score

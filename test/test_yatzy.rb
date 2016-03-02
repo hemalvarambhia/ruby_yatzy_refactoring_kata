@@ -10,12 +10,6 @@ class YatzyTest < Test::Unit::TestCase
     assert_equal 0, Yatzy.yatzy([6,6,6,6,3])
   end
 
-  def test_fives()
-    assert 10 == Yatzy.new(4,4,4,5,5).fives()
-    assert 15 == Yatzy.new(4,4,5,5,5).fives()
-    assert 20 == Yatzy.new(4,5,5,5,5).fives()
-  end
-
   def test_sixes_test
     assert 0 == Yatzy.new(4,4,4,5,5).sixes()
     assert 6 == Yatzy.new(4,4,6,5,5).sixes()

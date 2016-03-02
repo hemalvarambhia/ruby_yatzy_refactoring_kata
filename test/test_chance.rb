@@ -1,5 +1,4 @@
 require_relative 'test_helper'
-require_relative '../lib/yatzy'
 
 class TestChance < Test::Unit::TestCase
   def test_chance_scores_sum_of_all_dice
