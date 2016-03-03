@@ -16,27 +16,12 @@ class Yatzy
 
   def ones
     ones = @dice.select { |face| face == 1 }
-    ones.inject(0){ |score, one| score + one }
+    ones.inject(0) { |score, one| score + one }
   end
 
-  def self.twos( d1,  d2,  d3,  d4,  d5)
-    sum = 0
-    if (d1 == 2)
-      sum += 2
-    end
-    if (d2 == 2)
-      sum += 2
-    end
-    if (d3 == 2)
-      sum += 2
-    end
-    if (d4 == 2)
-      sum += 2
-    end
-    if (d5 == 2)
-      sum += 2
-    end
-    return sum
+  def twos
+    twos = @dice.select { |face| face ==2 }
+    twos.inject(0) { |score, two| score + two }
   end
 
   def self.threes( d1,  d2,  d3,  d4,  d5)
