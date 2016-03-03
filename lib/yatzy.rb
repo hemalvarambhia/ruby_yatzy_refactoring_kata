@@ -14,25 +14,13 @@ class Yatzy
     50
   end
 
-  def self.ones( d1,  d2,  d3,  d4,  d5)
-    sum = 0
-    if (d1 == 1)
-      sum += 1
-    end
-    if (d2 == 1)
-      sum += 1
-    end
-    if (d3 == 1)
-      sum += 1
-    end
-    if (d4 == 1)
-      sum += 1
-    end
-    if (d5 == 1)
-      sum += 1
-    end
+  def ones
+    ones = @dice.select { |face| face == 1 }
+    ones.inject(0){ |score, one| score + one }
+  end
 
-    sum
+  def self.ones(*dice)
+    Yatzy.new(*dice).ones
   end
 
   def self.twos( d1,  d2,  d3,  d4,  d5)
