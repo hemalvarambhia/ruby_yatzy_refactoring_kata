@@ -1,11 +1,10 @@
 class Yatzy
   def initialize(*dice)
-    @dice = [0]*5
     @dice = dice
   end
 
   def chance
-    @dice.inject(0) { |score, face| score + face }
+    @dice.reduce(:+)
   end
   
   def yatzy
@@ -27,8 +26,7 @@ class Yatzy
   end
 
   def add_up(face_value)
-    with_face_value = @dice.select { |dice| dice == face_value }
-    with_face_value.inject(0) { |score, face| score + face }
+    @dice.select { |dice| dice == face_value }.reduce(0, :+)
   end
   
   def fours
