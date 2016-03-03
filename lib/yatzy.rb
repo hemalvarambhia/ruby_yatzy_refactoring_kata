@@ -33,15 +33,8 @@ class Yatzy
     add_up(4)
   end
 
-  def fives()
-    s = 0
-    i = 0
-    for i in (Range.new(0, @dice.size))
-      if (@dice[i] == 5)
-        s = s + 5
-      end
-    end
-    s
+  def fives
+    add_up(5)
   end
 
   def sixes
