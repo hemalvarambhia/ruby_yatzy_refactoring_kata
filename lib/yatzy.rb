@@ -1,10 +1,16 @@
 class Yatzy
-  def self.chance(*dice)
-    dice.inject(0) {|score, face| score + face }
+  def initialize(*dice)
+    @dice = [0]*5
+    @dice = dice
   end
 
-  def self.yatzy(dice)
-    return 0 if dice.uniq.count > 1
+  def chance
+    @dice.inject(0) { |score, face| score + face }
+  end
+  
+  def yatzy
+    return 0 if @dice.uniq.count > 1
+
     50
   end
 
@@ -68,16 +74,7 @@ class Yatzy
     end
     return s
   end
-
-  def initialize(d1, d2, d3, d4, _5)
-    @dice = [0]*5
-    @dice[0] = d1
-    @dice[1] = d2
-    @dice[2] = d3
-    @dice[3] = d4
-    @dice[4] = _5
-  end
-
+  
   def fours
     sum = 0
     for at in Array 0..4
