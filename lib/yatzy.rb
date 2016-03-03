@@ -41,20 +41,17 @@ class Yatzy
     add_up(6)
   end
 
+  def score_pair
+    counts = Hash[
+      @dice.uniq.map { |face| [face, @dice.count(face)] }
+    ]
+    return 0 if counts.none? { |face, count| count >= 2 }
+    pairs = counts.select {|face, count| count >= 2 }.keys
+    2 * pairs.max
+  end
+
   def self.score_pair(*dice)
-    counts = [0]*6
-    counts[dice[0]-1] += 1
-    counts[dice[1]-1] += 1
-    counts[dice[2]-1] += 1
-    counts[dice[3]-1] += 1
-    counts[dice[4]-1] += 1
-    at = 0
-    (0...6).each do |at|
-      if (counts[6-at-1] >= 2)
-        return (6-at)*2
-      end
-    end
-    return 0
+    Yatzy.new(*dice).score_pair
   end
 
   def self.two_pair( d1,  d2,  d3,  d4,  d5)
