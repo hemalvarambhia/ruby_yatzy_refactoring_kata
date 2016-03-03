@@ -19,10 +19,6 @@ class Yatzy
     ones.inject(0){ |score, one| score + one }
   end
 
-  def self.ones(*dice)
-    Yatzy.new(*dice).ones
-  end
-
   def self.twos( d1,  d2,  d3,  d4,  d5)
     sum = 0
     if (d1 == 2)
