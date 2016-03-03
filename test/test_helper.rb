@@ -5,5 +5,5 @@ lib_dir  = File.join(base_dir, "lib")
 $LOAD_PATH.unshift(lib_dir)
 require 'test/unit'
 require 'yatzy'
-require 'minitest/autorun'
+
 
