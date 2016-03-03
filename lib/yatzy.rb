@@ -15,18 +15,20 @@ class Yatzy
   end
 
   def ones
-    ones = @dice.select { |face| face == 1 }
-    ones.inject(0) { |score, one| score + one }
+    add_up(1)
   end
 
   def twos
-    twos = @dice.select { |face| face ==2 }
-    twos.inject(0) { |score, two| score + two }
+    add_up(2)
   end
 
   def threes
-    threes = @dice.select { |face| face == 3 }
-    threes.inject(0) { |score, three| score + three }
+    add_up(3)
+  end
+
+  def add_up(face_value)
+    with_face_value = @dice.select { |dice| dice == face_value }
+    with_face_value.inject(0) { |score, face| score + face }
   end
   
   def fours
