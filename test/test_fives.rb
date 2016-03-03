@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class TestFives < MiniTest::Test
+class TestFives < Test::Unit::TestCase
   def test_that_a_throw_with_no_fives_yields_0_score
     assert_equal 0, Yatzy.new(1, 2, 3, 3, 4).fives
   end

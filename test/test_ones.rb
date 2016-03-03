@@ -1,7 +1,7 @@
 require_relative 'test_helper'
 require_relative '../lib/yatzy'
 
-class TestOnes < MiniTest::Test
+class TestOnes < Test::Unit::TestCase
   def test_that_a_throw_with_no_ones_yields_0_score
     assert_equal 0, Yatzy.ones(6,2,2,4,5)
   end

@@ -3,5 +3,7 @@ SimpleCov.start
 base_dir = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 lib_dir  = File.join(base_dir, "lib")
 $LOAD_PATH.unshift(lib_dir)
-require 'minitest/autorun'
+require 'test/unit'
 require 'yatzy'
+require 'minitest/autorun'
+

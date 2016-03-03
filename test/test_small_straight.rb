@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class TestSmallStraight < MiniTest::Test
+class TestSmallStraight < Test::Unit::TestCase
   def test_that_a_throw_that_is_not_1234_and_5_yields_0_score
     assert_equal 0, Yatzy.smallStraight(2, 3, 4, 5, 6)
   end

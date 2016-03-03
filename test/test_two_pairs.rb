@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class TestTwoPairs < MiniTest::Test
+class TestTwoPairs < Test::Unit::TestCase
   def test_that_a_throw_with_no_pairs_yields_0_score
     assert_equal 0, Yatzy.two_pair(1, 2, 3, 4, 5)
   end

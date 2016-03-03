@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class TestThrees < MiniTest::Test
+class TestThrees < Test::Unit::TestCase
   def test_that_a_throw_with_no_3s_yields_0_score
     assert_equal 0, Yatzy.threes(1, 2, 4, 5, 6)
   end
