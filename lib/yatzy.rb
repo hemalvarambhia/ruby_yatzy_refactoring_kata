@@ -68,16 +68,9 @@ class Yatzy
   end
 
   def self.largeStraight(*dice)
-    tallies = [0]*6
-    tallies[dice[0]-1] += 1
-    tallies[dice[1]-1] += 1
-    tallies[dice[2]-1] += 1
-    tallies[dice[3]-1] += 1
-    tallies[dice[4]-1] += 1
-    if (tallies[1] == 1 and tallies[2] == 1 and tallies[3] == 1 and tallies[4] == 1 and tallies[5] == 1)
-      return 20
-    end
-    return 0
+    return 0 unless dice.sort == [ 2, 3, 4, 5, 6 ]
+    
+    20
   end
 
   def self.fullHouse( d1,  d2,  d3,  d4,  d5)
