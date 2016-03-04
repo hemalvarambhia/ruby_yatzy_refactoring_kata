@@ -93,6 +93,6 @@ class Yatzy
   end
   
   def add_up(face_value)
-   @dice.select { |face| face == face_value }.reduce(0, :+)
+    @dice.select { |face| face == face_value }.reduce(0, :+)
   end
 end
