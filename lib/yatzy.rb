@@ -73,10 +73,6 @@ class Yatzy
     20
   end
 
-  def self.largeStraight(*dice)
-    return Yatzy.new(*dice).large_straight
-  end
-
   def self.fullHouse( d1,  d2,  d3,  d4,  d5)
     tallies = []
     _2 = false
