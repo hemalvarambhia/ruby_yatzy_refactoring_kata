@@ -61,18 +61,9 @@ class Yatzy
     3 * triplet.first
   end
 
-  def self.smallStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    (tallies[0] == 1 and
-      tallies[1] == 1 and
-      tallies[2] == 1 and
-      tallies[3] == 1 and
-      tallies[4] == 1) ? 15 : 0
+  def self.smallStraight(*dice)
+    return 0 unless dice.sort == [ 1, 2, 3, 4, 5 ]
+    return 15
   end
 
   def self.largeStraight( d1,  d2,  d3,  d4,  d5)
