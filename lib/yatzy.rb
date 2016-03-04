@@ -74,39 +74,14 @@ class Yatzy
   end
 
   def self.fullHouse(*dice)
-    tallies = []
-    _2 = false
-    i = 0
-    _2_at = 0
-    _3 = false
-    _3_at = 0
+    count_faces = Hash[ 
+       dice.uniq.collect { |face| [ face, dice.count(face) ] }
+    ]
+    triples = count_faces.select { |face, count| count == 3 }
+    pair = count_faces.select { |face, count| count == 2 }
+    return 0 if triples.none? or pair.none?
 
-    tallies = [0]*6
-    tallies[dice[0]-1] += 1
-    tallies[dice[1]-1] += 1
-    tallies[dice[2]-1] += 1
-    tallies[dice[3]-1] += 1
-    tallies[dice[4]-1] += 1
-
-    for i in Array 0..5
-      if (tallies[i] == 2)
-        _2 = true
-        _2_at = i+1
-      end
-    end
-
-    for i in Array 0..5
-      if (tallies[i] == 3)
-        _3 = true
-        _3_at = i+1
-      end
-    end
-
-    if (_2 and _3)
-      return _2_at * 2 + _3_at * 3
-    else
-      return 0
-    end
+    dice.reduce(0, :+)
   end
 
   private
