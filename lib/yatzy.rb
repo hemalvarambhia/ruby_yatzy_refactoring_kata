@@ -73,15 +73,16 @@ class Yatzy
     20
   end
 
-  def self.fullHouse(*dice)
-    count_faces = Hash[ 
-       dice.uniq.collect { |face| [ face, dice.count(face) ] }
-    ]
+  def full_house
     triples = count_faces.select { |face, count| count == 3 }
     pair = count_faces.select { |face, count| count == 2 }
     return 0 if triples.none? or pair.none?
 
-    dice.reduce(0, :+)
+    @dice.reduce(0, :+)
+  end
+
+  def self.fullHouse(*dice)
+    Yatzy.new(*dice).full_house
   end
 
   private
