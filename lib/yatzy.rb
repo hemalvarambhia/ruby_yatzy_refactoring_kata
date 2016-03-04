@@ -24,10 +24,6 @@ class Yatzy
   def threes
     add_up(3)
   end
-
-  def add_up(face_value)
-    @dice.select { |dice| dice == face_value }.reduce(0, :+)
-  end
   
   def fours
     add_up(4)
@@ -163,5 +159,11 @@ class Yatzy
     else
       return 0
     end
+  end
+
+  private
+  
+  def add_up(face_value)
+   @dice.select { |face| face == face_value }.reduce(0, :+)
   end
 end
