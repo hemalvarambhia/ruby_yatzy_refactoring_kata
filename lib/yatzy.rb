@@ -55,10 +55,6 @@ class Yatzy
     4 * quads.first
   end
 
-  def self.four_of_a_kind(*dice)
-    Yatzy.new(*dice).four_of_a_kind
-  end
-
   def three_of_a_kind
     triplet = count_faces.select { |face, count| count >= 3 }.keys
     return 0 if triplet.none?
