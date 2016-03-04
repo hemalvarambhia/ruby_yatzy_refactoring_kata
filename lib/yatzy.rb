@@ -46,26 +46,13 @@ class Yatzy
     2 * pairs.max
   end
 
-  def self.two_pair( d1,  d2,  d3,  d4,  d5)
-    counts = [0]*6
-    counts[d1-1] += 1
-    counts[d2-1] += 1
-    counts[d3-1] += 1
-    counts[d4-1] += 1
-    counts[d5-1] += 1
-    n = 0
-    score = 0
-    for i in Array 0..5
-      if (counts[6-i-1] >= 2)
-        n = n+1
-        score += (6-i)
-      end
-    end
-    if (n == 2)
-      return score * 2
-    else
-      return 0
-    end
+  def two_pair
+    counts = Hash[
+      @dice.uniq.collect { |face| [face, @dice.count(face)] }
+    ]
+    pairs = counts.select { |face, count| count >= 2 }.keys
+    return 0 if pairs.size < 2
+    2 * pairs.reduce(0, :+)
   end
 
   def self.four_of_a_kind( _1,  _2,  d3,  d4,  d5)
