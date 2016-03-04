@@ -49,13 +49,13 @@ class Yatzy
     2 * pairs.reduce(0, :+)
   end
 
-  def self.four_of_a_kind( d1,  d2,  d3,  d4,  d5)
+  def self.four_of_a_kind(*dice)
     tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
+    tallies[dice[0]-1] += 1
+    tallies[dice[1]-1] += 1
+    tallies[dice[2]-1] += 1
+    tallies[dice[3]-1] += 1
+    tallies[dice[4]-1] += 1
     for i in (0..5)
       if (tallies[i] >= 4)
         return (i+1) * 4
