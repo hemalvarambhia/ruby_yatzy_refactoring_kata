@@ -81,10 +81,6 @@ class Yatzy
     @dice.reduce(0, :+)
   end
 
-  def self.fullHouse(*dice)
-    Yatzy.new(*dice).full_house
-  end
-
   private
 
   def count_faces
