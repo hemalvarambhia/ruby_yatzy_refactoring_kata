@@ -49,13 +49,14 @@ class Yatzy
     2 * pairs.reduce(0, :+)
   end
 
-  def self.four_of_a_kind(*dice)
-    tallies = Hash[  
-      dice.uniq.collect { |face| [face, dice.count(face) ]}
-    ]
-    quads = tallies.select { |face, count| count >= 4 }.keys
+  def four_of_a_kind
+    quads = count_faces.select { |face, count| count >= 4 }.keys
     return 0 if quads.none?
-    4 * (quads.first)
+    4 * quads.first
+  end
+
+  def self.four_of_a_kind(*dice)
+    Yatzy.new(*dice).four_of_a_kind
   end
 
   def three_of_a_kind
