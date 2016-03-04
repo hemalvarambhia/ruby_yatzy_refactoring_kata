@@ -1,6 +1,10 @@
 class Yatzy
   def initialize(*dice)
     @dice = dice
+    @faces_by_count = 
+      Hash[
+        @dice.uniq.collect { |face| [face, @dice.count(face)] }
+      ]
   end
 
   def chance
@@ -84,13 +88,7 @@ class Yatzy
   private
 
   def faces_with(&block)
-    count_faces.select { |face, count| block.call(count) }.keys
-  end
-
-  def count_faces
-    Hash[
-      @dice.uniq.collect { |face| [face, @dice.count(face)] }
-    ]
+    @faces_by_count.select { |face, count| block.call(count) }.keys
   end
   
   def add_up_dice 
