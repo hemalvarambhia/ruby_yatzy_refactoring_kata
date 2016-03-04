@@ -70,19 +70,15 @@ class Yatzy
     return 0
   end
 
-  def self.three_of_a_kind(*dice)
-    t = [0]*6
-    t[dice[0]-1] += 1
-    t[dice[1]-1] += 1
-    t[dice[2]-1] += 1
-    t[dice[3]-1] += 1
-    t[dice[4]-1] += 1
-    for i in [0,1,2,3,4,5]
-      if (t[i] >= 3)
-        return (i+1) * 3
-      end
-    end
-    0
+  def three_of_a_kind
+    count = Hash[
+      @dice.uniq.collect { |face| [ face, @dice.count(face) ]}
+    ]
+
+    triplet = count.select { |face, count| count >= 3 }.keys
+    return 0 if triplet.none?
+
+    3 * triplet.first
   end
 
   def self.smallStraight( d1,  d2,  d3,  d4,  d5)
