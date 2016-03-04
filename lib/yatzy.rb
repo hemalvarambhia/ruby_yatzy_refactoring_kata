@@ -50,10 +50,6 @@ class Yatzy
     2 * pairs.max
   end
 
-  def self.score_pair(*dice)
-    Yatzy.new(*dice).score_pair
-  end
-
   def self.two_pair( d1,  d2,  d3,  d4,  d5)
     counts = [0]*6
     counts[d1-1] += 1
