@@ -89,7 +89,7 @@ class Yatzy
 
   def count_faces
     Hash[
-      @dice.uniq.collect { |face| [ face, @dice.count(face) ]}
+      @dice.uniq.collect { |face| [ face, @dice.count(face) ] }
     ]
   end
   
