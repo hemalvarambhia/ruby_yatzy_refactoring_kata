@@ -38,15 +38,13 @@ class Yatzy
   end
 
   def score_pair
-    counts = count_faces
-    pairs = counts.select {|face, count| count >= 2 }.keys
+    pairs = count_faces.select {|face, count| count >= 2 }.keys
     return 0 if pairs.none?
     2 * pairs.max
   end
 
   def two_pair
-    counts = count_faces
-    pairs = counts.select { |face, count| count >= 2 }.keys
+    pairs = count_faces.select { |face, count| count >= 2 }.keys
     return 0 if pairs.size < 2
     2 * pairs.reduce(0, :+)
   end
@@ -67,8 +65,7 @@ class Yatzy
   end
 
   def three_of_a_kind
-    count = count_faces
-    triplet = count.select { |face, count| count >= 3 }.keys
+    triplet = count_faces.select { |face, count| count >= 3 }.keys
     return 0 if triplet.none?
     3 * triplet.first
   end
