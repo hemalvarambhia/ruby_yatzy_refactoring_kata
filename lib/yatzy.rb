@@ -50,18 +50,12 @@ class Yatzy
   end
 
   def self.four_of_a_kind(*dice)
-    tallies = [0]*6
-    tallies[dice[0]-1] += 1
-    tallies[dice[1]-1] += 1
-    tallies[dice[2]-1] += 1
-    tallies[dice[3]-1] += 1
-    tallies[dice[4]-1] += 1
-    for i in (0..5)
-      if (tallies[i] >= 4)
-        return (i+1) * 4
-      end
-    end
-    return 0
+    tallies = Hash[  
+      dice.uniq.collect { |face| [face, dice.count(face) ]}
+    ]
+    quads = tallies.select { |face, count| count >= 4 }.keys
+    return 0 if quads.none?
+    4 * (quads.first)
   end
 
   def three_of_a_kind
