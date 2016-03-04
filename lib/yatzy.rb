@@ -38,25 +38,25 @@ class Yatzy
   end
 
   def score_pair
-    pairs = count_faces.select {|face, count| count >= 2 }.keys
+    pairs = faces_with { |count| count >= 2 }
     return 0 if pairs.none?
     2 * pairs.max
   end
 
   def two_pair
-    pairs = count_faces.select { |face, count| count >= 2 }.keys
+    pairs = faces_with { |count| count >= 2 }
     return 0 if pairs.size < 2
     2 * pairs.reduce(0, :+)
   end
 
   def four_of_a_kind
-    quads = count_faces.select { |face, count| count >= 4 }.keys
+    quads = faces_with { |count| count >= 4 }
     return 0 if quads.none?
     4 * quads.first
   end
 
   def three_of_a_kind
-    triplet = count_faces.select { |face, count| count >= 3 }.keys
+    triplet = faces_with { |count| count >= 3 }
     return 0 if triplet.none?
     3 * triplet.first
   end
@@ -74,14 +74,18 @@ class Yatzy
   end
 
   def full_house
-    triples = count_faces.select { |face, count| count == 3 }
-    pair = count_faces.select { |face, count| count == 2 }
+    triples = faces_with { |count| count == 3 }
+    pair = faces_with { |count| count == 2 }
     return 0 if triples.none? or pair.none?
 
     @dice.reduce(0, :+)
   end
 
   private
+
+  def faces_with(&block)
+    count_faces.select { |face, count| block.call(count) }.keys
+  end
 
   def count_faces
     Hash[
