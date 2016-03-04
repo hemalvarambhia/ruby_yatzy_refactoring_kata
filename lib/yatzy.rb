@@ -4,7 +4,7 @@ class Yatzy
   end
 
   def chance
-    @dice.reduce(:+)
+    add_up_dice
   end
   
   def yatzy
@@ -14,27 +14,27 @@ class Yatzy
   end
 
   def ones
-    add_up(1)
+    add_up_dice { |face| face == 1 }
   end
 
   def twos
-    add_up(2)
+    add_up_dice { |face| face == 2 }
   end
 
   def threes
-    add_up(3)
+    add_up_dice { |face| face == 3 }
   end
   
   def fours
-    add_up(4)
+    add_up_dice { |face| face == 4 }
   end
 
   def fives
-    add_up(5)
+    add_up_dice { |face| face == 5 }
   end
 
   def sixes
-    add_up(6)
+    add_up_dice { |face| face == 6 }
   end
 
   def score_pair
@@ -64,13 +64,13 @@ class Yatzy
   def small_straight
     return 0 unless @dice.sort == [ 1, 2, 3, 4, 5 ]
     
-    15
+    add_up_dice
   end
 
   def large_straight
     return 0 unless @dice.sort == [ 2, 3, 4, 5, 6 ]
 
-    20
+    add_up_dice
   end
 
   def full_house
@@ -78,7 +78,7 @@ class Yatzy
     pair = faces_with { |count| count == 2 }
     return 0 if triples.none? or pair.none?
 
-    @dice.reduce(0, :+)
+    add_up_dice
   end
 
   private
@@ -93,7 +93,15 @@ class Yatzy
     ]
   end
   
-  def add_up(face_value)
-    @dice.select { |face| face == face_value }.reduce(0, :+)
+  def add_up_dice 
+    to_add_up = @dice
+    to_add_up = 
+      if block_given?
+        @dice.select { |face| yield face }
+      else
+        @dice
+      end
+    
+    to_add_up.reduce(0, :+)
   end
 end
