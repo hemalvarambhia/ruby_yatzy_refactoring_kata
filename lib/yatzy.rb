@@ -38,18 +38,14 @@ class Yatzy
   end
 
   def score_pair
-    counts = Hash[
-      @dice.uniq.map { |face| [face, @dice.count(face)] }
-    ]
-    return 0 if counts.none? { |face, count| count >= 2 }
+    counts = count_faces
     pairs = counts.select {|face, count| count >= 2 }.keys
+    return 0 if pairs.none?
     2 * pairs.max
   end
 
   def two_pair
-    counts = Hash[
-      @dice.uniq.collect { |face| [face, @dice.count(face)] }
-    ]
+    counts = count_faces
     pairs = counts.select { |face, count| count >= 2 }.keys
     return 0 if pairs.size < 2
     2 * pairs.reduce(0, :+)
@@ -71,13 +67,9 @@ class Yatzy
   end
 
   def three_of_a_kind
-    count = Hash[
-      @dice.uniq.collect { |face| [ face, @dice.count(face) ]}
-    ]
-
+    count = count_faces
     triplet = count.select { |face, count| count >= 3 }.keys
     return 0 if triplet.none?
-
     3 * triplet.first
   end
 
@@ -145,6 +137,12 @@ class Yatzy
   end
 
   private
+
+  def count_faces
+    Hash[
+      @dice.uniq.collect { |face| [ face, @dice.count(face) ]}
+    ]
+  end
   
   def add_up(face_value)
    @dice.select { |face| face == face_value }.reduce(0, :+)
