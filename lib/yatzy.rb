@@ -61,9 +61,10 @@ class Yatzy
     3 * triplet.first
   end
 
-  def self.smallStraight(*dice)
-    return 0 unless dice.sort == [ 1, 2, 3, 4, 5 ]
-    return 15
+  def small_straight
+    return 0 unless @dice.sort == [ 1, 2, 3, 4, 5 ]
+    
+    15
   end
 
   def self.largeStraight( d1,  d2,  d3,  d4,  d5)
