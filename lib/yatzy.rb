@@ -67,13 +67,13 @@ class Yatzy
     15
   end
 
-  def self.largeStraight( d1,  d2,  d3,  d4,  d5)
+  def self.largeStraight(*dice)
     tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
+    tallies[dice[0]-1] += 1
+    tallies[dice[1]-1] += 1
+    tallies[dice[2]-1] += 1
+    tallies[dice[3]-1] += 1
+    tallies[dice[4]-1] += 1
     if (tallies[1] == 1 and tallies[2] == 1 and tallies[3] == 1 and tallies[4] == 1 and tallies[5] == 1)
       return 20
     end
