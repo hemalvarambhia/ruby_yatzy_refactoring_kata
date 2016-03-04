@@ -94,7 +94,6 @@ class Yatzy
   end
   
   def add_up_dice 
-    to_add_up = @dice
     to_add_up = 
       if block_given?
         @dice.select { |face| yield face }
