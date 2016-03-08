@@ -2,9 +2,6 @@ require 'roll'
 class Yatzy
   def initialize(*dice)
     @dice = Roll.new dice
-    @tally = Hash[
-        @dice.uniq.collect { |face| [face, @dice.count(face)] }
-      ]
   end
 
   def chance
