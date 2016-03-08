@@ -22,6 +22,8 @@ class TestFourOfAKind < Test::Unit::TestCase
     assert_equal 12, four_of_a_kind(1, 3, 3, 3, 3)
   end
 
+  private
+
   def four_of_a_kind(*dice)
     Yatzy.new(*dice).four_of_a_kind
   end

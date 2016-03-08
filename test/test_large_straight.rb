@@ -10,6 +10,8 @@ class TestLargeStraight < Test::Unit::TestCase
     assert_equal 20, large_straight(3, 2, 5, 6, 4)
   end
 
+  private
+
   def large_straight(*dice)
     Yatzy.new(*dice).large_straight
   end

@@ -13,6 +13,8 @@ class TestSixes < Test::Unit::TestCase
     assert_equal 30, sixes(6, 6, 6, 6, 6)
   end
 
+  private
+
   def sixes(*dice)
     Yatzy.new(*dice).sixes
   end

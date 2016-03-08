@@ -12,6 +12,8 @@ class TestFours < Test::Unit::TestCase
     assert_equal 16, fours(4, 4, 4, 4, 1)
   end
 
+  private
+
   def fours(*dice)
     Yatzy.new(*dice).fours
   end

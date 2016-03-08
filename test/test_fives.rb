@@ -13,6 +13,8 @@ class TestFives < Test::Unit::TestCase
     assert_equal 25, fives(5, 5, 5, 5, 5)
   end
 
+  private
+
   def fives(*dice)
     Yatzy.new(*dice).fives
   end

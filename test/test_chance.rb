@@ -6,6 +6,8 @@ class TestChance < Test::Unit::TestCase
     assert_equal 16, chance(3, 3, 4, 5, 1)
   end
 
+  private
+
   def chance(*dice)
     Yatzy.new(*dice).chance
   end

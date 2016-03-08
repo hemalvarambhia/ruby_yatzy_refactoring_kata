@@ -14,6 +14,8 @@ class TestOnes < Test::Unit::TestCase
     assert_equal 5, ones(1, 1, 1, 1, 1)
   end
 
+  private
+
   def ones(*dice)
     Yatzy.new(*dice).ones
   end

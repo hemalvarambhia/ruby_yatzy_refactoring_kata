@@ -11,6 +11,8 @@ class TestOnePair < Test::Unit::TestCase
     assert_equal 12, score_pair(5, 6, 6, 6, 5)
   end
 
+  private
+
   def score_pair(*dice)
     Yatzy.new(*dice).score_pair
   end

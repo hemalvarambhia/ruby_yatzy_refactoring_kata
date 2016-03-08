@@ -18,6 +18,8 @@ class TestFullHouse < Test::Unit::TestCase
     assert_equal 27, full_house(5, 5, 5, 6, 6)
   end
 
+  private
+
   def full_house(*dice)
     Yatzy.new(*dice).full_house
   end
