@@ -15,27 +15,27 @@ class Yatzy
   end
 
   def ones
-    @dice.add_up { |face| face == 1 }
+    @dice.add_up { |landed_on| landed_on == 1 }
   end
 
   def twos
-    @dice.add_up { |face| face == 2 }
+    @dice.add_up { |landed_on| landed_on == 2 }
   end
 
   def threes
-    @dice.add_up { |face| face == 3 }
+    @dice.add_up { |landed_on| landed_on == 3 }
   end
   
   def fours
-    @dice.add_up { |face| face == 4 }
+    @dice.add_up { |landed_on| landed_on == 4 }
   end
 
   def fives
-    @dice.add_up { |face| face == 5 }
+    @dice.add_up { |landed_on| landed_on == 5 }
   end
 
   def sixes
-    @dice.add_up { |face| face == 6 }
+    @dice.add_up { |landed_on| landed_on == 6 }
   end
 
   def score_pair
