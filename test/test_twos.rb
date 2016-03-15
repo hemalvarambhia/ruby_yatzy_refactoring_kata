@@ -8,9 +8,7 @@ class TestTwos < Test::Unit::TestCase
   def test_that_a_throw_with_2s_yields_the_sum_of_only_the_2s
     assert_equal 2, twos(2, 1, 3, 4, 6)
     assert_equal 4, twos(2, 2, 1, 3, 3)
-    assert_equal 6, twos(2, 2, 2, 3, 3)
-    assert_equal 8, twos(2, 2, 2, 2, 3)
-    assert_equal 10, twos(2, 2, 2, 2, 2)
+    assert_equal 6, twos(2, 2, 3, 3, 2)
   end
 
   private
