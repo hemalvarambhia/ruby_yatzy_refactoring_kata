@@ -7,9 +7,10 @@ class TestRoll < Test::Unit::TestCase
     assert_equal 0, roll.add_up { |landed| landed == 3 }
   end
 
-  def test_that_find_dice_that_meet_count_criteria
+  def test_that_we_can_find_dice_that_meet_count_criteria
     roll = Roll.new([1, 2, 3, 3, 4, 1, 1])
 
-    assert_equal([3], roll.faces_with { |count| count == 2 })
+    assert_equal([1, 3], roll.faces_with { |count| count >= 2 })
+    assert_equal([2, 4], roll.faces_with { |count| count == 1 })
   end
 end
